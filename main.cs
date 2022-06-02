@@ -17,16 +17,21 @@ class Program
         );
         // Console.WriteLine(response);
         var jsonAsDictionary = System.Text.Json.JsonSerializer.Deserialize<Object>(response);
-        Console.WriteLine(jsonAsDictionary);
+        // Console.WriteLine(jsonAsDictionary);
         JsonNode resultsNode = JsonNode.Parse(response)!;
         // Console.WriteLine(sentenceNode);
         JsonNode sentenceNode = resultsNode!["sentence"]!;
-        // Console.WriteLine(nameNode);
-        JsonNode characterNode = resultsNode!["nameNode"]!;
+        // Console.WriteLine(characterNode);
+        JsonNode resultsCharacterNode = resultsNode!["character"]!;
+        // Console.WriteLine(characterNode);
+        JsonNode nameNode = resultsCharacterNode!["name"]!;
+        // Console.WriteLine(nameNode);     
+        JsonNode houseNode = resultsCharacterNode!["house"]!;
         // Console.WriteLine(houseNode);
-        JsonNode houseNode = resultsNode!["house"]!;
+        JsonNode houseNameNode = houseNode!["name"]!;
+
         Console.WriteLine("");
-        Console.WriteLine(characterNode + ": " + sentenceNode + " " + houseNode);
+        Console.WriteLine(nameNode + ": " + sentenceNode + " " + houseNameNode);
         Console.WriteLine("\nDone.");
     }
 }
