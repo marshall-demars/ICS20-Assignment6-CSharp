@@ -17,12 +17,13 @@ class Program
         );
         // Console.WriteLine(response);
         var jsonAsDictionary = System.Text.Json.JsonSerializer.Deserialize<Object>(response);
-        // Console.WriteLine(jsonAsDictionary);
-        Console.WriteLine("");
+        Console.WriteLine(jsonAsDictionary);
         JsonNode resultsNode = JsonNode.Parse(response)!;
-        // Console.WriteLine(characterNode);
+        // Console.WriteLine(sentenceNode);
         JsonNode sentenceNode = resultsNode!["sentence"]!;
-        JsonNode characterNode = resultsNode!["character"]!;
+        // Console.WriteLine(nameNode);
+        JsonNode characterNode = resultsNode!["nameNode"]!;
+        // Console.WriteLine(houseNode);
         JsonNode houseNode = resultsNode!["house"]!;
         Console.WriteLine("");
         Console.WriteLine(characterNode + ": " + sentenceNode + " " + houseNode);
